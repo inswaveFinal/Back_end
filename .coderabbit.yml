@@ -1,42 +1,22 @@
-# CodeRabbit 설정 파일
+# CodeRabbit 설정 파일 (간단 버전)
 
 # 리뷰 설정
 reviews:
   # 모든 브랜치에서 리뷰 활성화
   review_status: true
+  
   # 자동 리뷰 설정
   auto_review:
     enabled: true
-    # 모든 브랜치에서 리뷰 허용
-    base_branches:
-      - "*"
-    # 특정 패턴 제외 (선택사항)
-    excluded_branches:
-      - "temp/*"
-      - "experimental/*"
-    # PR/MR에서 자동 리뷰
-    drafts: true  # 드래프트 PR도 리뷰
+    # base_branches를 제거하면 모든 브랜치에서 자동 리뷰
+    drafts: true
   
   # 리뷰 요청 설정
   request_changes: ask
-  
-  # 모든 이벤트에서 리뷰 트리거
-  triggers:
-    - push
-    - pull_request
-    - manual
-  
-  # 코드 품질 체크
-  tools:
-    github:
-      enabled: true
-    gitlab:
-      enabled: true
 
 # 언어별 설정
 language_settings:
   java:
-    # Java 파일에 대한 특별한 리뷰 규칙
     review_level: detailed
   
 # 제외할 파일/폴더
@@ -51,21 +31,15 @@ path_filters:
   
 # 리뷰 범위 설정
 review_scope:
-  # 변경된 파일만 리뷰
   changed_files_only: false
-  # 전체 컨텍스트 포함
   include_context: true
 
 # 알림 설정
 notifications:
-  # 리뷰 완료 시 알림
   on_review_completion: true
-  # 중요한 이슈 발견 시 알림
   on_critical_issues: true
 
 # 보안 체크
 security:
-  # 보안 취약점 체크 활성화
   vulnerability_check: true
-  # 민감한 정보 체크
   sensitive_data_check: true
